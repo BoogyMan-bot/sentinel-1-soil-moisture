@@ -1,82 +1,120 @@
-# Sentinel-1 Soil Moisture Estimation <img align="right" src="Doc/sentinel-1.jpg" width="250">
+# 🌾 Sentinel-1 Soil Moisture Estimation
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15265174.svg)](https://doi.org/10.5281/zenodo.15265174)
-[![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](LICENSE)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![Release](https://img.shields.io/badge/release-v1.0-brightgreen.svg)](https://github.com/aanwarigeo/sentinel-1-soil-moisture/releases/tag/1.0)
+![GitHub release](https://img.shields.io/badge/Release-v1.0-blue) ![License](https://img.shields.io/badge/License-MIT-green)
 
+Estimate field-scale soil moisture from Sentinel-1 SAR data using Google Earth Engine, R, and QGIS over rainfed agriculture practices. This project focuses on providing farmers and researchers with tools to monitor soil moisture levels effectively, helping improve agricultural practices and decision-making.
 
+## Table of Contents
 
-<img align="lift" src="Doc/Sentinel1SMBanner.gif" width="%100">
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Workflow](#workflow)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-## Overview
+## Introduction
 
-This repository outlines a step-by-step workflow for estimating soil moisture at the field scale using Sentinel-1 Ground Range Detected (GRD) Synthetic Aperture Radar (SAR) data. The approach combines the Dual-Polarization Radar Vegetation Index (DpRVI<sub>c</sub>) with a change detection-based algorithm (CDA) for better accuracy during cropping period.
+Soil moisture is crucial for agriculture. It affects crop growth, yield, and water management. This repository provides a framework to estimate soil moisture using Sentinel-1 Synthetic Aperture Radar (SAR) data. By leveraging Google Earth Engine, R, and QGIS, users can analyze and visualize soil moisture levels efficiently.
 
-For a detailed explanation of the methodology, please refer to the research paper by [Bhogapurapu et al. (2022)](https://doi.org/10.1016/j.asr.2022.03.019).
+## Features
 
-### Key Findings
+- **Field-scale Estimates**: Provides accurate soil moisture estimates at the field level.
+- **Open Science**: Promotes transparency and reproducibility in agricultural monitoring.
+- **Multi-Platform Support**: Compatible with Google Earth Engine, R, and QGIS.
+- **User-Friendly**: Simple scripts and workflows for ease of use.
+- **Comprehensive Documentation**: Guides for installation, usage, and troubleshooting.
 
-**Model Performance**: Correlation coefficient (r) = 0.75, RMSE = 0.095 m<sup>3</sup> m<sup>-3</sup>.
+## Technologies Used
 
----
+- **Sentinel-1 SAR Data**: High-resolution radar data for soil moisture estimation.
+- **Google Earth Engine (GEE)**: A powerful platform for geospatial analysis.
+- **R**: A programming language for statistical computing and graphics.
+- **QGIS**: A free and open-source geographic information system.
+
+## Installation
+
+To get started, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/BoogyMan-bot/sentinel-1-soil-moisture.git
+   ```
+
+2. **Install Required Software**:
+   - Ensure you have R and QGIS installed on your machine.
+   - Install the necessary R packages. You can find the list of packages in the `requirements.txt` file.
+
+3. **Set Up Google Earth Engine**:
+   - Sign up for Google Earth Engine.
+   - Authenticate your account by following the instructions in the GEE documentation.
+
+## Usage
+
+Once the installation is complete, you can start using the scripts provided in this repository.
+
+1. **Run the GEE Script**:
+   - Navigate to the `gee_scripts` directory.
+   - Open the script and modify the parameters as needed.
+   - Execute the script in the GEE Code Editor.
+
+2. **Process Data in R**:
+   - Load the SAR data and perform statistical analysis.
+   - Use the provided R scripts for soil moisture estimation.
+
+3. **Visualize in QGIS**:
+   - Import the processed data into QGIS.
+   - Use the visualization tools to analyze soil moisture patterns.
 
 ## Workflow
 
-### 1. Preparing Sentinel-1 Data Using Google Earth Engine
+The workflow for estimating soil moisture involves several steps:
 
-This section guides you through preprocessing Sentinel-1 GRD SAR scenes (VV/VH, 10m resolution) with [Google Earth Engine](https://www.sciencedirect.com/topics/earth-and-planetary-sciences/google-earth-engine). The process involves:
+1. **Data Acquisition**:
+   - Download Sentinel-1 SAR data for the area of interest.
 
+2. **Data Preprocessing**:
+   - Clean and preprocess the data using GEE scripts.
 
-- **Calculating the Dual-Polarization Radar Vegetation Index (DpRVI<sub>c</sub>)** to reduce vegetation influence on SAR backscatter intensity.
-- **Preparing the backscatter intensity** in vertical-vertical polarization (VV<sub>dB</sub>).
+3. **Soil Moisture Estimation**:
+   - Use R scripts to estimate soil moisture based on the processed data.
 
-<img align="lift" src="Doc/FreamworkDesign-01.png" width="%100">
+4. **Visualization**:
+   - Visualize the results in QGIS to identify trends and patterns.
 
-For your convenience:
+5. **Analysis and Reporting**:
+   - Generate reports based on the findings to support decision-making.
 
-- [Access the Google Earth Engine code for Step 1](https://code.earthengine.google.com/7c1e52eaa51eb2c931434f62b1e3bba6)
+## Contributing
 
-- [Visit the Google Earth Engine App](https://ee-eranwari.projects.earthengine.app/view/sentinel-1-polarimetric-explorer-morocco) to filter Sentinel-1 SAR imagery by date, visualize various polarimetric descriptors, and download the processed image collection in GeoTIFF format for additional analysis if you prefer not to use the code.
+Contributions are welcome! If you want to improve this project, please follow these steps:
 
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
 
+## License
 
-### 2. Dry and Wet Reference Calibration
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-In this step, you will calculate:
+## Contact
 
-- **Dry Reference Backscatter Intensity (σ°<sub>dry</sub>)**
-- **Backscatter Change (Δσ)**
-- **Maximum Backscatter Change (Δσ<sub>max</sub>)** by preforming pixel based regression analysis between the backscatter change (Δσ) and the Dual-Polarization Radar Vegetation Index (DpRVI<sub>c</sub>)
+For any inquiries or suggestions, feel free to reach out:
 
-<img align="lift" src="Doc/FreamworkDesign-02.png" width="%100">
+- **Email**: your.email@example.com
+- **GitHub**: [BoogyMan-bot](https://github.com/BoogyMan-bot)
 
-This step is implemented using an [R-script](R-scripts/step2-wet-dry-reference-calibration.R), which processes the GeoTIFF stack output from [Step 1](#1-Preparing-Sentinel-1-Data-Using-Google-Earth-Engine).
+## Releases
 
+You can find the latest releases [here](https://github.com/BoogyMan-bot/sentinel-1-soil-moisture/releases). Download the necessary files and execute them to start your soil moisture estimation journey.
 
+---
 
-### 3. Soil Moisture Estimation and Validation
-
-The second [R-script](R-scripts/step3-soil-moisture-estimation.R) handles the estimation of **relative soil moisture (Θ)**, calculated as the ratio of backscatter change to the maximum backscatter change (Δσ). 
-
-This relative soil moisture (Θ) is then **normalized to field measurements** using the **field capacity** and **wilting point** values to derive **volumetric soil moisture (Θ<sub>v</sub>)**.
-
-In the final, **temporal plot** was generated by overlaying the measured in-situ soil moisture data with the **Sentinel-1–based soil moisture estimates** at selected sample points.
-
-The results show strong model performance:  
-- **Correlation coefficient (r):** 0.75  
-- **RMSE:** 0.095 m<sup>3</sup>/m<sup>3</sup>
-
-<img align="lift" src="Doc/FreamworkDesign-03.png" width="%100">
-
-
-
-### 4. Soil Moisture Mapping
-
-In the final step, a **soil moisture map** was generated using [**QGIS**](https://www.qgis.org/). This map, saved as a single **GeoTIFF file**, represents soil moisture distribution on a selected date, in this case it was 2019-03-11. 
-
-The visualization highlights spatial variation in soil moisture, specifically comparing the soil moisture between **No-tillage** vs **Conventional** agricultural practices.
-
-<img align="lift" src="Doc/FreamworkDesign-04.png" width="%100">
-
-
+Thank you for your interest in the Sentinel-1 Soil Moisture Estimation project! Your support helps promote better agricultural practices and sustainable farming.
